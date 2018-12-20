@@ -17,10 +17,10 @@ namespace restapi.Models
     {
         [DisplayName("Numero")]
         public int id { get; set; }
-        [DisplayName("Nombres")]
         public string nombre { get; set; }
-        [DisplayName("Apellidos")]
         public string apellido { get; set; }
+        [DisplayName("Nombre y Apellido(s)")]
+        public string NombreCompleto { get { return string.Format("{0} {1}", nombre, apellido); } }
         [DisplayName("Telefono")]
         public string telefono { get; set; }
         [DisplayName("Rut")]
