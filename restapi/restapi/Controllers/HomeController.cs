@@ -41,5 +41,11 @@ namespace restapi.Controllers
             }
            
         }
+
+        public ActionResult PrintViewToPdf()
+        {
+            var report = new ActionAsPdf("Index");
+            return report;
+        }
     }
 }

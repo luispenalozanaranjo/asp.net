@@ -5,6 +5,13 @@ using System.Web;
 
 namespace restapi.Models
 {
+    public class Direccion
+    {
+        public string calle { get; set; }
+        public int numero { get; set; }
+        public string comuna { get; set; }
+    }
+
     public class Usuario
     {
         public int id { get; set; }
@@ -13,11 +20,8 @@ namespace restapi.Models
         public string telefono { get; set; }
         public string rut { get; set; }
         public string fechaNacimiento { get; set; }
-        public string calle { get; set; }
-        public int numero { get; set; }
-        public string direccion
-        {
-            get { return calle + " " + numero; }
-        }
+
+        public Direccion direccion { get; set; }
+        public int activo { get; set; }
     }
 }
