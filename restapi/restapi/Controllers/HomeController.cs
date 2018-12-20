@@ -24,17 +24,17 @@ namespace restapi.Controllers
             {
                 user.BaseAddress = new Uri(Baseurl);
                 user.DefaultRequestHeaders.Clear();
-                //Define request data format  
+                //Definir el formato de solicitud de datos
                 user.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
+                //Enviando solicitud para encontrar el recurso de servicio REST de la API web al traer todos los Usuarios de la URL, utilizando HttpClient
                 HttpResponseMessage Res = await user.GetAsync("HaibuSolutions/prueba-tecnica-sf/user");
                 if (Res.IsSuccessStatusCode)
                 {
-                    //Storing the response details recieved from web api   
+                    //Almacenando la respuesta recibida de la api web 
                     var UserResponse = Res.Content.ReadAsStringAsync().Result;
 
-                    //Deserializing the response recieved from web api and storing into the Employee list  
+                    //Deserializando la respuesta recibida de la API web y almacenándola en la lista de Usuario
                     UserInfo = JsonConvert.DeserializeObject<List<Usuario>>(UserResponse);
 
                 }
@@ -45,6 +45,7 @@ namespace restapi.Controllers
 
         public ActionResult PrintViewToPdf()
         {
+            //Convirtiendo lo que esta en la tabla a PDF
             var report = new ActionAsPdf("Index");
             return report;
         }
